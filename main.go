@@ -24,8 +24,10 @@ func Home(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	mux := http.NewServeMux()
+	mux.Handle("/ui/", http.StripPrefix("/ui", http.FileServer(http.Dir("./ui"))))
 	mux.HandleFunc("/", handlers.Home)
 	mux.HandleFunc("/ascii", handlers.Ascii)
+
 	err := http.ListenAndServe(":8080", mux)
 
 	if err != nil {
