@@ -9,33 +9,36 @@
 </head>
 <body>
 <div class="intro">
-    <H1>Welcome</H1>
+    <H1>Ascii-Art-Web</H1>
 </div>
 
 <div class="crab">
     <img src="/ui/img/crab.png" alt="">
 </div>
-<div class="main">
-    <h1>ASCII-ART-WEB</h1>
-    <form action="ascii" method="post">
-        {{if .}}
-        <input type="text" id = "userInput" name = "userInput" value = "{{.Word}}" required>
-        {{else}}
-        <input type="text" id = "userInput" name = "userInput"  required>
-        {{end}}
-        <input type="radio" id="font1" name="fonts" value="standard">
-        <label for="font1" >standard</label>
-        <input type="radio" id="font2" name="fonts" value="shadow" >
-        <label for="font2">shadow</label>
-        <input type="radio" id="font3" name="fonts" value="thinkertoy" >
-        <label for="font3">thinkertoy</label>
-        <p>
-            <input type="submit" class="button1" value="Submit" />
-            <a class="button1" href="/">Clean</a>
-        </p>
-        <p>Result:</p>
-        <pre>{{.Res}}</pre>
-    </form>
+<div class="form">
+    <div class="main">
+        <form action="ascii" method="post">
+            {{if .}}
+            <input type="text" id = "userInput" name = "userInput" value = "{{.Word}}" required>
+            {{else}}
+            <input type="text" id = "userInput" name = "userInput"  required>
+            {{end}}
+            <input type="radio" id="font1" name="fonts" value="standard">
+            <label for="font1" >standard</label>
+            <input type="radio" id="font2" name="fonts" value="shadow" >
+            <label for="font2">shadow</label>
+            <input type="radio" id="font3" name="fonts" value="thinkertoy" >
+            <label for="font3">thinkertoy</label>
+            <p>
+                <input type="submit" class="button1" value="Submit" />
+                <a class="button1" href="/">Clean</a>
+            </p>
+            <p>Result:</p>
+            <pre>{{.Res}}</pre>
+            <img src="/ui/img/spongebob.png" alt="">
+        </form>
+    </div>
 </div>
+
 </body>
 </html>
