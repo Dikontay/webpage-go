@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"webpage-go/handlers"
 )
 
 func Home(w http.ResponseWriter, r *http.Request) {
@@ -23,7 +24,8 @@ func Home(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", Home)
+	mux.HandleFunc("/", handlers.Home)
+	mux.HandleFunc("/ascii", handlers.Ascii)
 	err := http.ListenAndServe(":8080", mux)
 
 	if err != nil {
