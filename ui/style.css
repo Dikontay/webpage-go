@@ -1,0 +1,39 @@
+
+.text{
+    color: red;
+}
+.intro h1{
+    color: red;
+}
+.main{
+    grid-column: 1/span 1;
+    grid-row: 1/span 1;
+    width: 500px;
+    height: 100px;
+
+
+    right: -300px;
+   /*position: absolute;*/
+   /* top:-0.1px;*/
+   /* right: -50px;*/
+}
+.intro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.crab{
+    grid-column: 2/span 1;
+    grid-row: 1/span 1;
+    width: 100px; /* Set to your desired width */
+    height: 100px; /* Set to your desired height */
+    position: absolute;
+    overflow: hidden ;
+    right: -950px;
+
+}
+.crab{
+    width: 100%;
+    height: auto;
+    display: block;
+}
