@@ -13,15 +13,6 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-//func renderTemplate(w http.ResponseWriter, tmpl string) {
-//	parsedTemplate, _ := template.ParseFiles(tmpl)
-//	err := parsedTemplate.Execute(w, nil)
-//	if err != nil {
-//		fmt.Println(err)
-//		return
-//	}
-//}
-
 func main() {
 	mux := http.NewServeMux()
 	mux.Handle("/ui/", http.StripPrefix("/ui", http.FileServer(http.Dir("./ui"))))

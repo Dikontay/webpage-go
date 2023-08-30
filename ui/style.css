@@ -5,16 +5,9 @@
     color: red;
 }
 .main{
-
-
-
-
-
-   display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-   /* top:-0.1px;*/
-   /* right: -50px;*/
 }
 .intro{
     display: flex;
