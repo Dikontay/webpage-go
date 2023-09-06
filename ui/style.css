@@ -1,31 +1,173 @@
-.text{
-    color: red;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.intro h1{
-    color: red;
+
+body {
+    background: url('./img/bg.jpg') 0 0/cover no-repeat;
+    height: 100vh;
 }
+
+.navbar {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 100px 20px 20px 20px;
+}
+
+.navbar a {
+    font-weight: 700;
+    text-decoration: none;
+    color: rgb(0, 26, 34);
+    font-size: 32px;
+}
+
+.footer {
+    font-family: 'Roboto', sans-serif;
+    padding: 5px;
+    font-size: 20px;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+}
+
+.footer p {
+    font-weight: 700;
+    color: rgb(0, 26, 34);
+}
+
+.form {
+   // background: url('./img/spongebob.png') 0 0/contain;
+}
+
 .main{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0px 20px;
 }
-.intro{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.crab{
-    width: 50px; /* Set to your desired width */
-    height: 50px; /* Set to your desired height */
-    position: absolute;
-    overflow: hidden ;
-    right: -950px;
-
-}
-.crab{
+.main textarea {
+    font-family: 'Roboto', sans-serif;
     width: 100%;
-    height: auto;
-    display: block;
+    height: 200px;
+    border: 3px solid rgb(200, 194, 218);
+    border-radius: 5px;
+    resize: none;
+    padding: 20px;
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
+.main form {
+    padding: 15px;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 4px;
+    background-color: #f8f4e5;
+    box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+}
 
+.resultt {
+    overflow: auto;
+    max-height: 600px;
+}
+
+.banners {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    margin: 0px 0px 15px 0px;
+}
+
+.banner {
+    flex: 0 1 33.333%;
+    display: flex;
+    justify-content: center;
+    height: 75px;
+    border-radius: 15px;
+}
+
+.buttons {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+}
+
+.output {
+    max-height: 500px;
+    margin-top: 10px;
+    padding: 24px;
+    overflow: auto;
+    background: #fff;
+    border: 3px #cccccc solid;
+    font-size: 13px;
+}
+
+.button {
+    height: 75px;
+    flex: 0 1 100%;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.banner input {
+    font-weight: 700;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: aquamarine;
+    border-radius: 20px;
+}
+
+.banner input:hover{
+    background-color: rgb(60, 207, 175);
+    color: #fff;
+}
+
+.button a {
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: aquamarine;
+    border-radius: 20px;
+}
+
+@media (max-width: 1199px) {
+    /* CSS для ширины от 992px до 1199px */
+}
+
+/* md-размер (<=991px) */
+@media (max-width: 991px) {
+    /* CSS для ширины от 768px до 991px */
+}
+
+/* sm-размер (<=768px) */
+@media (max-width: 767px) {
+    /* CSS для ширины от 576px до 767px */
+}
+
+/* xs-размер (<=575px) */
+@media (max-width: 575px) {
+    /* CSS для ширины до 575px (включительно) */
+    body {
+    }
+    .banners {
+        flex-wrap: wrap;
+    }
+    .navbar a {
+        font-size: 18px;
+    }
+    .banner {
+        flex: 0 1 100%;
+        margin-bottom: 3px;
+    }
+}

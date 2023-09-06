@@ -8,37 +8,47 @@
     <title>Ascii-Art-Web</title>
 </head>
 <body>
-<div class="intro">
-    <H1>Ascii-Art-Web</H1>
-</div>
-
-<div class="crab">
-    <img src="/ui/img/crab.png" alt="">
-</div>
+<nav class="navbar">
+    <div class="logo_txt">
+        <a href="/">Ascii-art-web-stylize</a>
+    </div>
+</nav>
 <div class="form">
     <div class="main">
         <form action="ascii" method="post">
             {{if .}}
-            <input type="text" id = "userInput" name = "userInput" value = "{{.Word}}" required>
+            <textarea name="userInput" id="userInput" placeholder="Write something..." required>{{.Word}}</textarea>
             {{else}}
-            <input type="text" id = "userInput" name = "userInput"  required>
+            <textarea name="userInput" id="userInput" placeholder="Write something..." required></textarea>
             {{end}}
-            <input type="radio" id="font1" name="fonts" value="standard">
-            <label for="font1" >standard</label>
-            <input type="radio" id="font2" name="fonts" value="shadow" >
-            <label for="font2">shadow</label>
-            <input type="radio" id="font3" name="fonts" value="thinkertoy" >
-            <label for="font3">thinkertoy</label>
-            <p>
-                <input type="submit" class="button1" value="Submit" />
-                <a class="button1" href="/">Clean</a>
-            </p>
-            <p>Result:</p>
-            <pre>{{.Res}}</pre>
-            <img src="/ui/img/spongebob.png" alt="">
+            <div class="banners">
+                <div class="banner">
+                    <input type="submit" id="font1" name="fonts" value="standard">
+
+                </div>
+                <div class="banner">
+                    <input type="submit" id="font2" name="fonts" value="shadow" >
+
+                </div>
+                <div class="banner">
+                    <input type="submit" id="font3" name="fonts" value="thinkertoy" >
+
+                </div>
+            </div>
+            <div class="buttons">
+                <!-- <div class="button"><input type="submit" class="button1" value="Submit" /></div> -->
+                <div class="button"> <a class="button1" href="/">Clean</a></div>
+            </div>
+            <div class="output">
+                <pre id="output">{{.Res}}</pre>
+            </div>
         </form>
     </div>
 </div>
-
+<footer class="footer">
+    <div class="footer_text">
+        <p>szhubatk  dalimbay</p>
+    </div>
+</footer>
 </body>
 </html>

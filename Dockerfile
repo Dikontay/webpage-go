@@ -1,6 +1,5 @@
 FROM golang:latest
 WORKDIR /app
-COPY ./ ./
-RUN go build -o ascii-art-web .
-CMD ["./webpage-go"]
-EXPOSE 4000
+COPY . .
+RUN go build -o main .
+CMD ["./main"]

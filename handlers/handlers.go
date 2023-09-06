@@ -3,6 +3,7 @@ package handlers
 import (
 	"html/template"
 	"net/http"
+	"strings"
 	"webpage-go/getFormat"
 )
 
@@ -13,7 +14,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	}
 	switch r.Method {
 	case "GET":
-		tm, err := template.ParseFiles("/Users/dilnaz/Desktop/go learning/webpage-go/templates/index.html")
+		tm, err := template.ParseFiles("./templates/index.html")
 		if err != nil {
 			errorPage(w, 500)
 			return
@@ -28,35 +29,53 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func Ascii(w http.ResponseWriter, r *http.Request) {
+func AsciiPage(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/ascii" {
 		http.NotFound(w, r)
 		return
 	}
-	if r.Method == "POST" {
-		tm, err := template.ParseFiles("/Users/dilnaz/Desktop/go learning/webpage-go/templates/index.html")
+	switch r.Method {
+	case "POST":
+		ts, err := template.ParseFiles("./templates/index.html")
 		if err != nil {
-			errorPage(w, 500)
+			ErrorPage(w, r, http.StatusInternalServerError)
 			return
 		}
-		userInput := r.FormValue("userInput")
-		format := r.FormValue("fonts")
-		res, okay := getformat.FinalOutput(userInput, format)
-		if !okay {
-			errorPage(w, http.StatusInternalServerError)
+		input := r.FormValue("userInput")
+		font := r.FormValue("fonts")
+		result, e := getformat.FinalOutput(input, font)
+		if !getformat.CheckLang(input) || strings.TrimSpace(input) == "" {
+			ErrorPage(w, r, 400)
 			return
 		}
-		Result := struct {
-			Word string
-			Res  string
+		if !e && result == "Bad Request" {
+			ErrorPage(w, r, 500)
+			return
+		}
+		err = ts.Execute(w, struct {
+			Result string
+			Word   string
 		}{
-			Word: userInput,
-			Res:  res,
-		}
-		err = tm.Execute(w, Result)
-		if err != nil {
-			errorPage(w, 500)
-			return
-		}
+			Result: result,
+			Word:   input,
+		})
+	default:
+		ErrorPage(w, r, 405)
+	}
+}
+
+func ErrorPage(w http.ResponseWriter, r *http.Request, status int) {
+	w.WriteHeader(status)
+	switch status {
+	case 404:
+		w.Write([]byte("Page Not Found"))
+	case 405:
+		w.Write([]byte("Method Not Allowed"))
+	case 400:
+		w.Write([]byte("Bad Request"))
+	case 500:
+		w.Write([]byte("Internal Server Error"))
+	default:
+		return
 	}
 }
