@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 	"strings"
@@ -44,6 +45,7 @@ func AsciiPage(w http.ResponseWriter, r *http.Request) {
 		input := r.FormValue("userInput")
 		font := r.FormValue("fonts")
 		result, e := getformat.FinalOutput(input, font)
+		fmt.Println(result)
 		if !getformat.CheckLang(input) || strings.TrimSpace(input) == "" {
 			ErrorPage(w, r, 400)
 			return
