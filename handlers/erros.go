@@ -2,9 +2,9 @@ package handlers
 
 import "net/http"
 
-func errorPage(w http.ResponseWriter, statusCode int) {
-	w.WriteHeader(statusCode)
-	switch statusCode {
+func ErrorPage(w http.ResponseWriter,  status int) {
+	w.WriteHeader(status)
+	switch status {
 	case 404:
 		w.Write([]byte("Page Not Found"))
 	case 405:
@@ -16,5 +16,4 @@ func errorPage(w http.ResponseWriter, statusCode int) {
 	default:
 		return
 	}
-
 }
