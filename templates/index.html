@@ -38,6 +38,8 @@
             <div class="buttons">
                 <!-- <div class="button"><input type="submit" class="button1" value="Submit" /></div> -->
                 <div class="button"> <a class="button1" href="/">Clean</a></div>
+                <input type="hidden" id="font3" name="datadownload" value="{{.Result}}" >
+                <div class="button-download"> <input type="submit" name="download" value="Download" formaction="download"></div>
             </div>
             <div class="output">
                 <pre id="output">{{.Result}}</pre>
