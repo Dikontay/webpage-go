@@ -1,71 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@600;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, .navbar a, .button a {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar {
+   display: flex;
+   justify-content: center;
+   margin: 20px;
+  
+}
+#name {
+   font-size: 30px;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-body {
-    background: url('./img/bg.jpg') 0 0/cover no-repeat;
-    height: 100vh;
-}
-
-.button-download input{
-    color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 20px;
-    width: 100%;
-    height: 100%;
-    background-color: aquamarine;
-    border-radius: 20px;
-}
-.button-download {
-    height: 75px;
-    flex: 0 1 100%;
-    display: flex;
-    margin-bottom: 20px;
-}
-
-
-.navbar {
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    justify-content: center;
-    padding: 100px 20px 20px 20px;
-}
-
-.navbar a {
-    font-weight: 700;
-    text-decoration: none;
-    color: rgb(0, 26, 34);
-    font-size: 32px;
-}
-
-.footer {
-    font-family: 'Roboto', sans-serif;
-    padding: 5px;
-    font-size: 20px;
-    position: fixed;
-    width: 100%;
-    text-align: center;
-    left: 0;
-    bottom: 0;
-}
-
-.footer p {
-    font-weight: 700;
-    color: rgb(0, 26, 34);
-}
-
-.form {
-    background: url('./img/spongebob.png') 0 0/contain;
-}
-
 .main{
     display: flex;
     align-items: center;
@@ -74,7 +32,7 @@ body {
 }
 .main textarea {
     font-family: 'Roboto', sans-serif;
-    width: 100%;
+    width: 100%;    
     height: 200px;
     border: 3px solid rgb(200, 194, 218);
     border-radius: 5px;
@@ -82,6 +40,11 @@ body {
     padding: 20px;
     font-size: 18px;
     margin-bottom: 10px;
+}
+
+body {
+    background-color: #FFEBD8;
+    color: var(--text-color);
 }
 
 .main form {
@@ -92,18 +55,15 @@ body {
     background-color: #f8f4e5;
     box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
 }
-
 .resultt {
     overflow: auto;
     max-height: 600px;
 }
-
 .banners {
     font-family: 'Roboto', sans-serif;
     display: flex;
     margin: 0px 0px 15px 0px;
 }
-
 .banner {
     flex: 0 1 33.333%;
     display: flex;
@@ -111,12 +71,10 @@ body {
     height: 75px;
     border-radius: 15px;
 }
-
 .buttons {
     font-family: 'Roboto', sans-serif;
     display: flex;
 }
-
 .output {
     max-height: 500px;
     margin-top: 10px;
@@ -126,7 +84,6 @@ body {
     border: 3px #cccccc solid;
     font-size: 13px;
 }
-
 .button {
     height: 75px;
     flex: 0 1 100%;
@@ -134,61 +91,77 @@ body {
     margin-bottom: 20px;
 }
 
-.banner input {
+
+
+.banner input, .button-download input, .button a {
     font-weight: 700;
     font-size: 20px;
     width: 100%;
     height: 100%;
-    background-color: aquamarine;
-    border-radius: 20px;
-}
-
-.banner input:hover{
-    background-color: rgb(60, 207, 175);
-    color: #fff;
-}
-
-.button a {
+    background-color: #C7DCA7;
+    /* border-radius: 20px; */
     color: #000;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 20px;
-    width: 100%;
-    height: 100%;
-    background-color: aquamarine;
+}
+
+/* Hover Effect */
+.banner input:hover, .button-download input:hover, .button a:hover {
+    background-color: #A8BFA6; /* Slightly darker shade for hover */
+    color: #fff;
+}
+
+
+.button, .button-download {
+    height: 75px;
+    flex: 0 1 100%;
+    display: flex;
+    margin-bottom: 20px;
+} 
+
+.error-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.code, .error-text{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.code {
+    font-size: 72px;
+}
+.error-text{
+    font-size: 50px;
+}
+
+.footer_text{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  
+   
+}
+
+#footer_text {
+    border: 2px solid #FFC5C5;
     border-radius: 20px;
+    padding: 20px;
+    font-weight: bold;
+    background-color: #FFC5C5;
+    /* Add other styling properties if needed */
 }
 
-@media (max-width: 1199px) {
-    /* CSS для ширины от 992px до 1199px */
-}
 
-/* md-размер (<=991px) */
-@media (max-width: 991px) {
-    /* CSS для ширины от 768px до 991px */
-}
-
-/* sm-размер (<=768px) */
 @media (max-width: 767px) {
-    /* CSS для ширины от 576px до 767px */
-}
-
-/* xs-размер (<=575px) */
-@media (max-width: 575px) {
-    /* CSS для ширины до 575px (включительно) */
-    body {
-    }
-    .banners {
-        flex-wrap: wrap;
-    }
     .navbar a {
         font-size: 18px;
     }
-    .banner {
+    .banner, .button {
         flex: 0 1 100%;
-        margin-bottom: 3px;
+        margin-bottom: 10px;
     }
 }

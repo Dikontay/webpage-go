@@ -1,19 +1,31 @@
 package handlers
 
-import "net/http"
+import (
+	"fmt"
+	"net/http"
+	"text/template"
+)
+
+type Error struct{
+	Code int
+	Text string
+}
 
 func ErrorPage(w http.ResponseWriter,  status int) {
 	w.WriteHeader(status)
-	switch status {
-	case 404:
-		w.Write([]byte("Page Not Found"))
-	case 405:
-		w.Write([]byte("Method Not Allowed"))
-	case 400:
-		w.Write([]byte("Bad Request"))
-	case 500:
-		w.Write([]byte("Internal Server Error"))
-	default:
+	ts, err := template.ParseFiles("./templates/errors.html")
+	if err != nil{
+		fmt.Println(err)
+		http.Error(w,  http.StatusText(status), status)
 		return
+	}
+	e := &Error{
+		Code: status,
+		Text: http.StatusText(status),
+	}
+	err = ts.Execute(w, e)
+	if err!= nil {
+		fmt.Println(err)
+		http.Error(w,  http.StatusText(status), status)
 	}
 }

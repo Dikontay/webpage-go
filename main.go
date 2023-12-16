@@ -13,8 +13,8 @@ func main() {
 	mux.HandleFunc("/", handlers.Home)
 	mux.HandleFunc("/ascii", handlers.AsciiPage)
 	mux.HandleFunc("/download", handlers.Download)
-	fmt.Println("\nStarting with default port number : 4000")
-	err := http.ListenAndServe(":4000", mux)
+	fmt.Println("Starting the server: http://localhost:8000/")
+	err := http.ListenAndServe(":8000", mux)
 
 	log.Fatal(err)
 }

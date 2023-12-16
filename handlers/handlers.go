@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"html/template"
 	"io"
 	"net/http"
@@ -12,7 +11,7 @@ import (
 
 func Home(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		http.NotFound(w, r)
+		ErrorPage(w, http.StatusNotFound)
 		return
 	}
 	switch r.Method {
@@ -34,7 +33,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 
 func AsciiPage(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/ascii" {
-		http.NotFound(w, r)
+		ErrorPage(w, http.StatusNotFound)
 		return
 	}
 	switch r.Method {
@@ -45,9 +44,14 @@ func AsciiPage(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		input := r.FormValue("userInput")
+		input = strings.ReplaceAll(input, "\r\n", "\n")
 		font := r.FormValue("fonts")
+		if len(input) > 40 {
+			ErrorPage(w, http.StatusBadRequest)
+			return
+		}
 		result, e := getformat.FinalOutput(input, font)
-		fmt.Println(result)
+
 		if !getformat.CheckLang(input) || strings.TrimSpace(input) == "" {
 			ErrorPage(w, 400)
 			return

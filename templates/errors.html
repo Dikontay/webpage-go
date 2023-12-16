@@ -5,9 +5,26 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/ui/style.css">
+    <title>Error</title>
 </head>
 <body>
-
+    <nav class="navbar">
+        <div class="logo_txt">
+            <a href="/"  style="text-decoration:none" id="name">Ascii-art-web-stylize</a>
+        </div>
+    </nav>
+    <div class="error-wrapper">
+        <div class="error">
+            <p class="code">{{.Code}}</p>
+            <p class="error-text">{{.Text}}</p>
+        </div>
+      
+    </div>
+    <footer class="footer">
+        <div class="footer_text">
+            <p id="footer_text">sbakirov & dalimbay</p>
+        </div>
+    </footer>
 </body>
 </html>
