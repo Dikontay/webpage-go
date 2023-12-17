@@ -17,6 +17,7 @@ h1, h2, h3, .navbar a, .button a {
 }
 #name {
    font-size: 30px;
+   color: #89B9AD;
 }
 
 * {
@@ -155,13 +156,26 @@ body {
     /* Add other styling properties if needed */
 }
 
-
 @media (max-width: 767px) {
     .navbar a {
         font-size: 18px;
     }
-    .banner, .button {
+
+    .banner, .button, .button-download {
         flex: 0 1 100%;
         margin-bottom: 10px;
+    }
+    .banner input:hover, .button-download input:hover, .button a:hover {
+        background-color: #A8BFA6; /* Slightly darker shade for hover */
+        color: #fff;
+    }
+    
+    .main {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .main form {
+        width: auto;
     }
 }
